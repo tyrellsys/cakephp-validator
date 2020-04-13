@@ -49,26 +49,26 @@ for method in $VALIDATOR_METHODS; do
     done
 
     strArgs=$(IFS=,;echo "${args[*]}" | sed 's/,/, /g')
-    translate='__('\'$methodName\'')'
+    translate='__d('\''validation'\'', '\'$methodName\'')'
 
     # hasAtLeast / hasAtMost
     if [[ " ${args[@]} " =~ " \$count " ]]; then
-        translate='__('\'$methodName' {0}'\'', $count)';
+        translate='__d('\''validation'\'', '\'$methodName' {0}'\'', $count)';
     fi
 
     # minLength / minLengthBytes
     if [[ " ${args[@]} " =~ " \$min " ]]; then
-        translate='__('\'$methodName' {0}'\'', $min)';
+        translate='__d('\''validation'\'', '\'$methodName' {0}'\'', $min)';
     fi
 
     # maxLength / maxLengthBytes
     if [[ " ${args[@]} " =~ " \$max " ]]; then
-        translate='__('\'$methodName' {0}'\'', $max)';
+        translate='__d('\''validation'\'', '\'$methodName' {0}'\'', $max)';
     fi
 
     # lengthBetween / range
     if [[ " ${args[@]} " =~ " \$range " ]]; then
-        translate='__('\'$methodName' {0} to {1}'\'', $range[0], $range[1])';
+        translate='__d('\''validation'\'', '\'$methodName' {0} to {1}'\'', $range[0], $range[1])';
     fi
 
     echo '   /**'

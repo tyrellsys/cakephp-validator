@@ -12,7 +12,7 @@ class Validator extends CakeValidator
     */
    public function requirePresence($field, $mode = true, ?string $message = null)
    {
-       $message = $message ?? __('requirePresence');
+       $message = $message ?? __d('validation', 'requirePresence');
 
        return parent::requirePresence($field, $mode, $message);
    }
@@ -22,7 +22,7 @@ class Validator extends CakeValidator
     */
    public function allowEmptyString(string $field, ?string $message = null, $when = true)
    {
-       $message = $message ?? __('allowEmptyString');
+       $message = $message ?? __d('validation', 'allowEmptyString');
 
        return parent::allowEmptyString($field, $message, $when);
    }
@@ -32,7 +32,7 @@ class Validator extends CakeValidator
     */
    public function notEmptyString(string $field, ?string $message = null, $when = false)
    {
-       $message = $message ?? __('notEmptyString');
+       $message = $message ?? __d('validation', 'notEmptyString');
 
        return parent::notEmptyString($field, $message, $when);
    }
@@ -42,7 +42,7 @@ class Validator extends CakeValidator
     */
    public function allowEmptyArray(string $field, ?string $message = null, $when = true)
    {
-       $message = $message ?? __('allowEmptyArray');
+       $message = $message ?? __d('validation', 'allowEmptyArray');
 
        return parent::allowEmptyArray($field, $message, $when);
    }
@@ -52,7 +52,7 @@ class Validator extends CakeValidator
     */
    public function notEmptyArray(string $field, ?string $message = null, $when = false)
    {
-       $message = $message ?? __('notEmptyArray');
+       $message = $message ?? __d('validation', 'notEmptyArray');
 
        return parent::notEmptyArray($field, $message, $when);
    }
@@ -62,7 +62,7 @@ class Validator extends CakeValidator
     */
    public function allowEmptyFile(string $field, ?string $message = null, $when = true)
    {
-       $message = $message ?? __('allowEmptyFile');
+       $message = $message ?? __d('validation', 'allowEmptyFile');
 
        return parent::allowEmptyFile($field, $message, $when);
    }
@@ -72,7 +72,7 @@ class Validator extends CakeValidator
     */
    public function notEmptyFile(string $field, ?string $message = null, $when = false)
    {
-       $message = $message ?? __('notEmptyFile');
+       $message = $message ?? __d('validation', 'notEmptyFile');
 
        return parent::notEmptyFile($field, $message, $when);
    }
@@ -82,7 +82,7 @@ class Validator extends CakeValidator
     */
    public function allowEmptyDate(string $field, ?string $message = null, $when = true)
    {
-       $message = $message ?? __('allowEmptyDate');
+       $message = $message ?? __d('validation', 'allowEmptyDate');
 
        return parent::allowEmptyDate($field, $message, $when);
    }
@@ -92,7 +92,7 @@ class Validator extends CakeValidator
     */
    public function notEmptyDate(string $field, ?string $message = null, $when = false)
    {
-       $message = $message ?? __('notEmptyDate');
+       $message = $message ?? __d('validation', 'notEmptyDate');
 
        return parent::notEmptyDate($field, $message, $when);
    }
@@ -102,7 +102,7 @@ class Validator extends CakeValidator
     */
    public function allowEmptyTime(string $field, ?string $message = null, $when = true)
    {
-       $message = $message ?? __('allowEmptyTime');
+       $message = $message ?? __d('validation', 'allowEmptyTime');
 
        return parent::allowEmptyTime($field, $message, $when);
    }
@@ -112,7 +112,7 @@ class Validator extends CakeValidator
     */
    public function notEmptyTime(string $field, ?string $message = null, $when = false)
    {
-       $message = $message ?? __('notEmptyTime');
+       $message = $message ?? __d('validation', 'notEmptyTime');
 
        return parent::notEmptyTime($field, $message, $when);
    }
@@ -122,7 +122,7 @@ class Validator extends CakeValidator
     */
    public function allowEmptyDateTime(string $field, ?string $message = null, $when = true)
    {
-       $message = $message ?? __('allowEmptyDateTime');
+       $message = $message ?? __d('validation', 'allowEmptyDateTime');
 
        return parent::allowEmptyDateTime($field, $message, $when);
    }
@@ -132,7 +132,7 @@ class Validator extends CakeValidator
     */
    public function notEmptyDateTime(string $field, ?string $message = null, $when = false)
    {
-       $message = $message ?? __('notEmptyDateTime');
+       $message = $message ?? __d('validation', 'notEmptyDateTime');
 
        return parent::notEmptyDateTime($field, $message, $when);
    }
@@ -142,7 +142,7 @@ class Validator extends CakeValidator
     */
    public function notBlank(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('notBlank');
+       $message = $message ?? __d('validation', 'notBlank');
 
        return parent::notBlank($field, $message, $when);
    }
@@ -152,7 +152,7 @@ class Validator extends CakeValidator
     */
    public function alphaNumeric(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('alphaNumeric');
+       $message = $message ?? __d('validation', 'alphaNumeric');
 
        return parent::alphaNumeric($field, $message, $when);
    }
@@ -162,7 +162,7 @@ class Validator extends CakeValidator
     */
    public function notAlphaNumeric(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('notAlphaNumeric');
+       $message = $message ?? __d('validation', 'notAlphaNumeric');
 
        return parent::notAlphaNumeric($field, $message, $when);
    }
@@ -172,7 +172,7 @@ class Validator extends CakeValidator
     */
    public function asciiAlphaNumeric(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('asciiAlphaNumeric');
+       $message = $message ?? __d('validation', 'asciiAlphaNumeric');
 
        return parent::asciiAlphaNumeric($field, $message, $when);
    }
@@ -182,7 +182,7 @@ class Validator extends CakeValidator
     */
    public function notAsciiAlphaNumeric(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('notAsciiAlphaNumeric');
+       $message = $message ?? __d('validation', 'notAsciiAlphaNumeric');
 
        return parent::notAsciiAlphaNumeric($field, $message, $when);
    }
@@ -192,7 +192,7 @@ class Validator extends CakeValidator
     */
    public function lengthBetween(string $field, array $range, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('lengthBetween {0} to {1}', $range[0], $range[1]);
+       $message = $message ?? __d('validation', 'lengthBetween {0} to {1}', $range[0], $range[1]);
 
        return parent::lengthBetween($field, $range, $message, $when);
    }
@@ -202,7 +202,7 @@ class Validator extends CakeValidator
     */
    public function creditCard(string $field, string $type = 'all', ?string $message = null, $when = null)
    {
-       $message = $message ?? __('creditCard');
+       $message = $message ?? __d('validation', 'creditCard');
 
        return parent::creditCard($field, $type, $message, $when);
    }
@@ -212,7 +212,7 @@ class Validator extends CakeValidator
     */
    public function greaterThan(string $field, $value, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('greaterThan');
+       $message = $message ?? __d('validation', 'greaterThan');
 
        return parent::greaterThan($field, $value, $message, $when);
    }
@@ -222,7 +222,7 @@ class Validator extends CakeValidator
     */
    public function greaterThanOrEqual(string $field, $value, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('greaterThanOrEqual');
+       $message = $message ?? __d('validation', 'greaterThanOrEqual');
 
        return parent::greaterThanOrEqual($field, $value, $message, $when);
    }
@@ -232,7 +232,7 @@ class Validator extends CakeValidator
     */
    public function lessThan(string $field, $value, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('lessThan');
+       $message = $message ?? __d('validation', 'lessThan');
 
        return parent::lessThan($field, $value, $message, $when);
    }
@@ -242,7 +242,7 @@ class Validator extends CakeValidator
     */
    public function lessThanOrEqual(string $field, $value, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('lessThanOrEqual');
+       $message = $message ?? __d('validation', 'lessThanOrEqual');
 
        return parent::lessThanOrEqual($field, $value, $message, $when);
    }
@@ -252,7 +252,7 @@ class Validator extends CakeValidator
     */
    public function equals(string $field, $value, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('equals');
+       $message = $message ?? __d('validation', 'equals');
 
        return parent::equals($field, $value, $message, $when);
    }
@@ -262,7 +262,7 @@ class Validator extends CakeValidator
     */
    public function notEquals(string $field, $value, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('notEquals');
+       $message = $message ?? __d('validation', 'notEquals');
 
        return parent::notEquals($field, $value, $message, $when);
    }
@@ -272,7 +272,7 @@ class Validator extends CakeValidator
     */
    public function sameAs(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('sameAs');
+       $message = $message ?? __d('validation', 'sameAs');
 
        return parent::sameAs($field, $secondField, $message, $when);
    }
@@ -282,7 +282,7 @@ class Validator extends CakeValidator
     */
    public function notSameAs(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('notSameAs');
+       $message = $message ?? __d('validation', 'notSameAs');
 
        return parent::notSameAs($field, $secondField, $message, $when);
    }
@@ -292,7 +292,7 @@ class Validator extends CakeValidator
     */
    public function equalToField(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('equalToField');
+       $message = $message ?? __d('validation', 'equalToField');
 
        return parent::equalToField($field, $secondField, $message, $when);
    }
@@ -302,7 +302,7 @@ class Validator extends CakeValidator
     */
    public function notEqualToField(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('notEqualToField');
+       $message = $message ?? __d('validation', 'notEqualToField');
 
        return parent::notEqualToField($field, $secondField, $message, $when);
    }
@@ -312,7 +312,7 @@ class Validator extends CakeValidator
     */
    public function greaterThanField(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('greaterThanField');
+       $message = $message ?? __d('validation', 'greaterThanField');
 
        return parent::greaterThanField($field, $secondField, $message, $when);
    }
@@ -322,7 +322,7 @@ class Validator extends CakeValidator
     */
    public function greaterThanOrEqualToField(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('greaterThanOrEqualToField');
+       $message = $message ?? __d('validation', 'greaterThanOrEqualToField');
 
        return parent::greaterThanOrEqualToField($field, $secondField, $message, $when);
    }
@@ -332,7 +332,7 @@ class Validator extends CakeValidator
     */
    public function lessThanField(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('lessThanField');
+       $message = $message ?? __d('validation', 'lessThanField');
 
        return parent::lessThanField($field, $secondField, $message, $when);
    }
@@ -342,7 +342,7 @@ class Validator extends CakeValidator
     */
    public function lessThanOrEqualToField(string $field, string $secondField, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('lessThanOrEqualToField');
+       $message = $message ?? __d('validation', 'lessThanOrEqualToField');
 
        return parent::lessThanOrEqualToField($field, $secondField, $message, $when);
    }
@@ -352,7 +352,7 @@ class Validator extends CakeValidator
     */
    public function containsNonAlphaNumeric(string $field, int $limit = 1, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('containsNonAlphaNumeric');
+       $message = $message ?? __d('validation', 'containsNonAlphaNumeric');
 
        return parent::containsNonAlphaNumeric($field, $limit, $message, $when);
    }
@@ -362,7 +362,7 @@ class Validator extends CakeValidator
     */
    public function date(string $field, array $formats = ['ymd'], ?string $message = null, $when = null)
    {
-       $message = $message ?? __('date');
+       $message = $message ?? __d('validation', 'date');
 
        return parent::date($field, $formats, $message, $when);
    }
@@ -372,7 +372,7 @@ class Validator extends CakeValidator
     */
    public function dateTime(string $field, array $formats = ['ymd'], ?string $message = null, $when = null)
    {
-       $message = $message ?? __('dateTime');
+       $message = $message ?? __d('validation', 'dateTime');
 
        return parent::dateTime($field, $formats, $message, $when);
    }
@@ -382,7 +382,7 @@ class Validator extends CakeValidator
     */
    public function time(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('time');
+       $message = $message ?? __d('validation', 'time');
 
        return parent::time($field, $message, $when);
    }
@@ -392,7 +392,7 @@ class Validator extends CakeValidator
     */
    public function localizedTime(string $field, string $type = 'datetime', ?string $message = null, $when = null)
    {
-       $message = $message ?? __('localizedTime');
+       $message = $message ?? __d('validation', 'localizedTime');
 
        return parent::localizedTime($field, $type, $message, $when);
    }
@@ -402,7 +402,7 @@ class Validator extends CakeValidator
     */
    public function boolean(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('boolean');
+       $message = $message ?? __d('validation', 'boolean');
 
        return parent::boolean($field, $message, $when);
    }
@@ -412,7 +412,7 @@ class Validator extends CakeValidator
     */
    public function decimal(string $field, ?int $places = null, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('decimal');
+       $message = $message ?? __d('validation', 'decimal');
 
        return parent::decimal($field, $places, $message, $when);
    }
@@ -422,7 +422,7 @@ class Validator extends CakeValidator
     */
    public function email(string $field, bool $checkMX = false, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('email');
+       $message = $message ?? __d('validation', 'email');
 
        return parent::email($field, $checkMX, $message, $when);
    }
@@ -432,7 +432,7 @@ class Validator extends CakeValidator
     */
    public function ip(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('ip');
+       $message = $message ?? __d('validation', 'ip');
 
        return parent::ip($field, $message, $when);
    }
@@ -442,7 +442,7 @@ class Validator extends CakeValidator
     */
    public function ipv4(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('ipv4');
+       $message = $message ?? __d('validation', 'ipv4');
 
        return parent::ipv4($field, $message, $when);
    }
@@ -452,7 +452,7 @@ class Validator extends CakeValidator
     */
    public function ipv6(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('ipv6');
+       $message = $message ?? __d('validation', 'ipv6');
 
        return parent::ipv6($field, $message, $when);
    }
@@ -462,7 +462,7 @@ class Validator extends CakeValidator
     */
    public function minLength(string $field, int $min, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('minLength {0}', $min);
+       $message = $message ?? __d('validation', 'minLength {0}', $min);
 
        return parent::minLength($field, $min, $message, $when);
    }
@@ -472,7 +472,7 @@ class Validator extends CakeValidator
     */
    public function minLengthBytes(string $field, int $min, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('minLengthBytes {0}', $min);
+       $message = $message ?? __d('validation', 'minLengthBytes {0}', $min);
 
        return parent::minLengthBytes($field, $min, $message, $when);
    }
@@ -482,7 +482,7 @@ class Validator extends CakeValidator
     */
    public function maxLength(string $field, int $max, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('maxLength {0}', $max);
+       $message = $message ?? __d('validation', 'maxLength {0}', $max);
 
        return parent::maxLength($field, $max, $message, $when);
    }
@@ -492,7 +492,7 @@ class Validator extends CakeValidator
     */
    public function maxLengthBytes(string $field, int $max, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('maxLengthBytes {0}', $max);
+       $message = $message ?? __d('validation', 'maxLengthBytes {0}', $max);
 
        return parent::maxLengthBytes($field, $max, $message, $when);
    }
@@ -502,7 +502,7 @@ class Validator extends CakeValidator
     */
    public function numeric(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('numeric');
+       $message = $message ?? __d('validation', 'numeric');
 
        return parent::numeric($field, $message, $when);
    }
@@ -512,7 +512,7 @@ class Validator extends CakeValidator
     */
    public function naturalNumber(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('naturalNumber');
+       $message = $message ?? __d('validation', 'naturalNumber');
 
        return parent::naturalNumber($field, $message, $when);
    }
@@ -522,7 +522,7 @@ class Validator extends CakeValidator
     */
    public function nonNegativeInteger(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('nonNegativeInteger');
+       $message = $message ?? __d('validation', 'nonNegativeInteger');
 
        return parent::nonNegativeInteger($field, $message, $when);
    }
@@ -532,7 +532,7 @@ class Validator extends CakeValidator
     */
    public function range(string $field, array $range, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('range {0} to {1}', $range[0], $range[1]);
+       $message = $message ?? __d('validation', 'range {0} to {1}', $range[0], $range[1]);
 
        return parent::range($field, $range, $message, $when);
    }
@@ -542,7 +542,7 @@ class Validator extends CakeValidator
     */
    public function url(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('url');
+       $message = $message ?? __d('validation', 'url');
 
        return parent::url($field, $message, $when);
    }
@@ -552,7 +552,7 @@ class Validator extends CakeValidator
     */
    public function urlWithProtocol(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('urlWithProtocol');
+       $message = $message ?? __d('validation', 'urlWithProtocol');
 
        return parent::urlWithProtocol($field, $message, $when);
    }
@@ -562,7 +562,7 @@ class Validator extends CakeValidator
     */
    public function inList(string $field, array $list, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('inList');
+       $message = $message ?? __d('validation', 'inList');
 
        return parent::inList($field, $list, $message, $when);
    }
@@ -572,7 +572,7 @@ class Validator extends CakeValidator
     */
    public function uuid(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('uuid');
+       $message = $message ?? __d('validation', 'uuid');
 
        return parent::uuid($field, $message, $when);
    }
@@ -582,7 +582,7 @@ class Validator extends CakeValidator
     */
    public function uploadedFile(string $field, array $options, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('uploadedFile');
+       $message = $message ?? __d('validation', 'uploadedFile');
 
        return parent::uploadedFile($field, $options, $message, $when);
    }
@@ -592,7 +592,7 @@ class Validator extends CakeValidator
     */
    public function latLong(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('latLong');
+       $message = $message ?? __d('validation', 'latLong');
 
        return parent::latLong($field, $message, $when);
    }
@@ -602,7 +602,7 @@ class Validator extends CakeValidator
     */
    public function latitude(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('latitude');
+       $message = $message ?? __d('validation', 'latitude');
 
        return parent::latitude($field, $message, $when);
    }
@@ -612,7 +612,7 @@ class Validator extends CakeValidator
     */
    public function longitude(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('longitude');
+       $message = $message ?? __d('validation', 'longitude');
 
        return parent::longitude($field, $message, $when);
    }
@@ -622,7 +622,7 @@ class Validator extends CakeValidator
     */
    public function ascii(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('ascii');
+       $message = $message ?? __d('validation', 'ascii');
 
        return parent::ascii($field, $message, $when);
    }
@@ -632,7 +632,7 @@ class Validator extends CakeValidator
     */
    public function utf8(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('utf8');
+       $message = $message ?? __d('validation', 'utf8');
 
        return parent::utf8($field, $message, $when);
    }
@@ -642,7 +642,7 @@ class Validator extends CakeValidator
     */
    public function utf8Extended(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('utf8Extended');
+       $message = $message ?? __d('validation', 'utf8Extended');
 
        return parent::utf8Extended($field, $message, $when);
    }
@@ -652,7 +652,7 @@ class Validator extends CakeValidator
     */
    public function integer(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('integer');
+       $message = $message ?? __d('validation', 'integer');
 
        return parent::integer($field, $message, $when);
    }
@@ -662,7 +662,7 @@ class Validator extends CakeValidator
     */
    public function isArray(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('isArray');
+       $message = $message ?? __d('validation', 'isArray');
 
        return parent::isArray($field, $message, $when);
    }
@@ -672,7 +672,7 @@ class Validator extends CakeValidator
     */
    public function scalar(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('scalar');
+       $message = $message ?? __d('validation', 'scalar');
 
        return parent::scalar($field, $message, $when);
    }
@@ -682,7 +682,7 @@ class Validator extends CakeValidator
     */
    public function hexColor(string $field, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('hexColor');
+       $message = $message ?? __d('validation', 'hexColor');
 
        return parent::hexColor($field, $message, $when);
    }
@@ -692,7 +692,7 @@ class Validator extends CakeValidator
     */
    public function multipleOptions(string $field, array $options = [], ?string $message = null, $when = null)
    {
-       $message = $message ?? __('multipleOptions');
+       $message = $message ?? __d('validation', 'multipleOptions');
 
        return parent::multipleOptions($field, $options, $message, $when);
    }
@@ -702,7 +702,7 @@ class Validator extends CakeValidator
     */
    public function hasAtLeast(string $field, int $count, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('hasAtLeast {0}', $count);
+       $message = $message ?? __d('validation', 'hasAtLeast {0}', $count);
 
        return parent::hasAtLeast($field, $count, $message, $when);
    }
@@ -712,7 +712,7 @@ class Validator extends CakeValidator
     */
    public function hasAtMost(string $field, int $count, ?string $message = null, $when = null)
    {
-       $message = $message ?? __('hasAtMost {0}', $count);
+       $message = $message ?? __d('validation', 'hasAtMost {0}', $count);
 
        return parent::hasAtMost($field, $count, $message, $when);
    }
