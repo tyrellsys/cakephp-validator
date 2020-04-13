@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+#
+# create validator
+#
+
+APP=$(cd $(dirname $0)/../; pwd)
+
+# 除外関数
+# addNested addNestedMany
+EXCEPTS=(
+    "addNested"
+    "addNestedMany"
+#
+    "allowEmpty"
+    "allowEmptyFor"
+#
+    "notEmpty"
+    "regex"
+)
+
+VALIDATOR_METHODS=$(grep "public function" $APP/vendor/cakephp/cakephp/src/Validation/Validator.php | grep \$message)
+
+cat << '_EOL_'
+<?php
+declare(strict_types=1);
+
+namespace Tyrellsys\CakePHPValidator\Validation;
+
+use Cake\Validation\Validator as CakeValidator;
+
+class Validator extends CakeValidator
+{
+_EOL_
+
+IFS=$'\n'
+for method in $VALIDATOR_METHODS; do
+    methodName=$(echo $method | sed 's/.*public function \(.*\)(.*/\1/')
+
+    if [[ " ${EXCEPTS[@]} " =~ " ${methodName} " ]]; then
+        continue;
+    fi
+
+    args=()
+    IFS=" "
+    for arg in $(echo $method | awk -F'(' '{print $2}'); do
+        if [ ${arg:0:1} = '$' ]; then
+            args+=($(echo $arg | sed 's/,//'))
+        fi
+    done
+
+    strArgs=$(IFS=,;echo "${args[*]}" | sed 's/,/, /g')
+    translate='__('\'$methodName\'')'
+
+    # hasAtLeast / hasAtMost
+    if [[ " ${args[@]} " =~ " \$count " ]]; then
+        translate='__('\'$methodName' {0}'\'', $count)';
+    fi
+
+    # minLength / minLengthBytes
+    if [[ " ${args[@]} " =~ " \$min " ]]; then
+        translate='__('\'$methodName' {0}'\'', $min)';
+    fi
+
+    # maxLength / maxLengthBytes
+    if [[ " ${args[@]} " =~ " \$max " ]]; then
+        translate='__('\'$methodName' {0}'\'', $max)';
+    fi
+
+    # lengthBetween / range
+    if [[ " ${args[@]} " =~ " \$range " ]]; then
+        translate='__('\'$methodName' {0} to {1}'\'', $range[0], $range[1])';
+    fi
+
+    echo '   /**'
+    echo '    * {@inheritDoc}'
+    echo '    */'
+    echo '  '$method
+    echo '   {'
+    echo '       $message = $message ?? '$translate';'
+    echo
+    echo '       return parent::'$methodName'('$strArgs');'
+    echo '   }'
+    echo
+done
+
+echo '}'

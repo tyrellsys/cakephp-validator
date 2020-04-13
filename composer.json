@@ -1,0 +1,33 @@
+{
+    "name": "tyrellsys/cakephp-validator",
+    "description": "CakePHP4 Validator that set the validation message",
+    "type": "cakephp-plugin",
+    "require": {
+        "php": ">=7.2",
+        "cakephp/cakephp": "^4.0"
+    },
+    "require-dev": {
+        "cakephp/cakephp-codesniffer": "~4.0.0",
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tyrellsys\\CakePHPValidator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cake\\Test\\": "vendor/cakephp/cakephp/tests",
+            "Tyrellsys\\CakePHPValidator\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "test": "phpunit",
+        "cs-check": "phpcs --colors -p src/ tests/",
+        "cs-fix": "phpcs --colors -p src/ tests/"
+    }
+}
