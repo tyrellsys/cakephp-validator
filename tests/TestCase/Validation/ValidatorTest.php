@@ -263,7 +263,7 @@ class ValidatorTest extends TestCase
             ->lessThan('column', 3)
             ->lessThanOrEqual('column', 3)
             ->equals('column', 1)
-            ->notEquals('column', 1)
+            ->notEquals('column', [])
             ->sameAs('column', 'secondField')
             ->notSameAs('column', 'secondField')
             ->equalToField('column', 'secondField')
@@ -321,6 +321,7 @@ class ValidatorTest extends TestCase
             'lessThan' => 'lessThan',
             'lessThanOrEqual' => 'lessThanOrEqual',
             'equals' => 'equals',
+            'notEquals' => 'notEquals',
             'sameAs' => 'sameAs',
             'notSameAs' => 'notSameAs',
             'equalToField' => 'equalToField',
@@ -360,7 +361,7 @@ class ValidatorTest extends TestCase
             'multipleOptions' => 'multipleOptions',
             'hasAtLeast' => 'hasAtLeast 1',
         ];
-        $this->assertCount(48, $errors['column']);
+        $this->assertCount(49, $errors['column']);
         $this->assertEquals($expected, $errors['column']);
     }
 
