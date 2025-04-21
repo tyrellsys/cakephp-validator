@@ -1,13 +1,13 @@
-# CakePHP4 Messages Validator plugin
+# CakePHP5 Messages Validator plugin
 
-CakePHP4 Validator that set the validation message
+CakePHP5 Validator that set the validation message
 
 ## Requirements
 
 The master branch has the following requirements:
 
-* CakePHP >4.0.0
-* PHP 7.2 or greater
+* CakePHP ^5.0.1
+* PHP 8.1 or greater
 
 ## Installation
 

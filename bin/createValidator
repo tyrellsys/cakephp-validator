@@ -72,7 +72,7 @@ for method in $VALIDATOR_METHODS; do
     fi
 
     echo '   /**'
-    echo '    * {@inheritDoc}'
+    echo '    * @inheritDoc'
     echo '    */'
     echo '  '$method
     echo '   {'

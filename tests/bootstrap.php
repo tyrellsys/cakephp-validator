@@ -10,9 +10,10 @@ $findRoot = function ($root) {
         }
     } while ($root !== $lastRoot);
 
-    throw new Exception("Cannot find the root of the application, unable to run tests");
+    throw new Exception('Cannot find the root of the application, unable to run tests');
 };
 $root = $findRoot(__FILE__);
 unset($findRoot);
 
 require $root . '/vendor/cakephp/cakephp/tests/bootstrap.php';
+require $root . '/vendor/cakephp/cakephp/src/I18n/functions_global.php';

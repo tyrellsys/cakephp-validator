@@ -3,9 +3,8 @@ declare(strict_types=1);
 
 namespace Tyrellsys\CakePHPValidator\Test\TestCase\Validation;
 
-use Cake\Core\Configure;
-use Cake\I18n\I18n;
 use Cake\TestSuite\TestCase;
+use Laminas\Diactoros\UploadedFile;
 use Tyrellsys\CakePHPValidator\Validation\Validator;
 
 /**
@@ -15,11 +14,10 @@ use Tyrellsys\CakePHPValidator\Validation\Validator;
  */
 class ValidatorTest extends TestCase
 {
-    protected $Validator;
-    protected $locale;
+    protected Validator $Validator;
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public function setUp(): void
     {
@@ -29,7 +27,7 @@ class ValidatorTest extends TestCase
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public function tearDown(): void
     {
@@ -44,13 +42,13 @@ class ValidatorTest extends TestCase
      * \Cake\Validation\Validator if number of methods changes.
      * Must be reflected in this plugin.
      *
-     * @return
+     * @return void
      */
-    public function testMethodCount()
+    public function testMethodCount(): void
     {
         $method = get_class_methods($this->Validator);
 
-        $this->assertCount(101, $method);
+        $this->assertCount(99, $method);
     }
 
     /**
@@ -58,7 +56,7 @@ class ValidatorTest extends TestCase
      *
      * @return void
      */
-    public function testMessages()
+    public function testMessages(): void
     {
         $this->Validator
             ->requirePresence('column')
@@ -83,7 +81,6 @@ class ValidatorTest extends TestCase
             ->greaterThanOrEqualToField('column', 'secondField')
             ->lessThanField('column', 'secondField')
             ->lessThanOrEqualToField('column', 'secondField')
-            ->containsNonAlphaNumeric('column', 1)
             ->date('column')
             ->dateTime('column')
             ->time('column')
@@ -114,7 +111,7 @@ class ValidatorTest extends TestCase
             ->utf8('column')
             ->utf8Extended('column')
             ->integer('column')
-            ->isArray('column')
+            ->array('column')
             ->scalar('column')
             ->hexColor('column')
             ->multipleOptions('column')
@@ -142,7 +139,6 @@ class ValidatorTest extends TestCase
             'greaterThanOrEqualToField' => 'greaterThanOrEqualToField',
             'lessThanField' => 'lessThanField',
             'lessThanOrEqualToField' => 'lessThanOrEqualToField',
-            'containsNonAlphaNumeric' => 'containsNonAlphaNumeric',
             'date' => 'date',
             'dateTime' => 'dateTime',
             'time' => 'time',
@@ -168,13 +164,15 @@ class ValidatorTest extends TestCase
             'latitude' => 'latitude',
             'longitude' => 'longitude',
             'integer' => 'integer',
-            'isArray' => 'isArray',
+            'array' => 'array',
             'hexColor' => 'hexColor',
             'multipleOptions' => 'multipleOptions',
             'hasAtLeast' => 'hasAtLeast 1',
             'hasAtMost' => 'hasAtMost 1',
+            'lessThan' => 'lessThan',
+            'lessThanOrEqual' => 'lessThanOrEqual',
         ];
-        $this->assertCount(47, $errors['column']);
+        $this->assertCount(48, $errors['column']);
         $this->assertEquals($expected, $errors['column']);
 
         /**
@@ -204,7 +202,6 @@ class ValidatorTest extends TestCase
             'greaterThanOrEqualToField' => 'greaterThanOrEqualToField',
             'lessThanField' => 'lessThanField',
             'lessThanOrEqualToField' => 'lessThanOrEqualToField',
-            'containsNonAlphaNumeric' => 'containsNonAlphaNumeric',
             'date' => 'date',
             'dateTime' => 'dateTime',
             'time' => 'time',
@@ -232,12 +229,14 @@ class ValidatorTest extends TestCase
             'latitude' => 'latitude',
             'longitude' => 'longitude',
             'integer' => 'integer',
-            'isArray' => 'isArray',
+            'array' => 'array',
             'hexColor' => 'hexColor',
             'hasAtLeast' => 'hasAtLeast 1',
             'hasAtMost' => 'hasAtMost 1',
+            'lessThan' => 'lessThan',
+            'lessThanOrEqual' => 'lessThanOrEqual',
         ];
-        $this->assertCount(46, $errors['column']);
+        $this->assertCount(47, $errors['column']);
         $this->assertEquals($expected, $errors['column']);
     }
 
@@ -248,7 +247,7 @@ class ValidatorTest extends TestCase
      *
      * @return void
      */
-    public function testNotScalar()
+    public function testNotScalar(): void
     {
         $this->Validator
             ->requirePresence('column')
@@ -264,7 +263,7 @@ class ValidatorTest extends TestCase
             ->lessThan('column', 3)
             ->lessThanOrEqual('column', 3)
             ->equals('column', 1)
-            ->notEquals('column', 1)
+            ->notEquals('column', [])
             ->sameAs('column', 'secondField')
             ->notSameAs('column', 'secondField')
             ->equalToField('column', 'secondField')
@@ -273,7 +272,6 @@ class ValidatorTest extends TestCase
             ->greaterThanOrEqualToField('column', 'secondField')
             ->lessThanField('column', 'secondField')
             ->lessThanOrEqualToField('column', 'secondField')
-            ->containsNonAlphaNumeric('column', 1)
             //->date('column')
             //->dateTime('column')
             //->time('column')
@@ -304,7 +302,7 @@ class ValidatorTest extends TestCase
             ->utf8('column')
             ->utf8Extended('column')
             ->integer('column')
-            ->isArray('column')
+            ->array('column')
             ->scalar('column')
             ->hexColor('column')
             ->multipleOptions('column')
@@ -332,7 +330,6 @@ class ValidatorTest extends TestCase
             'greaterThanOrEqualToField' => 'greaterThanOrEqualToField',
             'lessThanField' => 'lessThanField',
             'lessThanOrEqualToField' => 'lessThanOrEqualToField',
-            'containsNonAlphaNumeric' => 'containsNonAlphaNumeric',
             'boolean' => 'boolean',
             'decimal' => 'decimal',
             'email' => 'email',
@@ -364,7 +361,7 @@ class ValidatorTest extends TestCase
             'multipleOptions' => 'multipleOptions',
             'hasAtLeast' => 'hasAtLeast 1',
         ];
-        $this->assertCount(50, $errors['column']);
+        $this->assertCount(49, $errors['column']);
         $this->assertEquals($expected, $errors['column']);
     }
 
@@ -373,7 +370,7 @@ class ValidatorTest extends TestCase
      *
      * @return void
      */
-    public function testEmptyXXXX()
+    public function testEmptyXXXX(): void
     {
         // notEmpty
         $this->Validator
@@ -387,12 +384,7 @@ class ValidatorTest extends TestCase
         $errors = $this->Validator->validate([
             'string' => '',
             'array' => [],
-            'file' => [
-                'name' => 'name',
-                'type' => 'type',
-                'tmp_name' => 'tmp_name',
-                'error' => UPLOAD_ERR_NO_FILE,
-            ],
+            'file' => new UploadedFile('', 0, UPLOAD_ERR_NO_FILE, null, null),
             'date' => '',
             'datetime' => '',
             'time' => '',
@@ -404,13 +396,13 @@ class ValidatorTest extends TestCase
         $this->assertEquals('notEmptyDateTime', $errors['datetime']['_empty']);
         $this->assertEquals('notEmptyTime', $errors['time']['_empty']);
 
-        /** 'allow*' cannot be an error
+    /** 'allow*' cannot be an error
         $this->assertEquals('allowEmptyString', $errors['string']['_empty']);
         $this->assertEquals('allowEmptyArray', $errors['array']['_empty']);
         $this->assertEquals('allowEmptyFile', $errors['file']['_empty']);
         $this->assertEquals('allowEmptyDate', $errors['date']['_empty']);
         $this->assertEquals('allowEmptyDateTime', $errors['datetime']['_empty']);
         $this->assertEquals('allowEmptyTime', $errors['time']['_empty']);
-        */
+     */
     }
 }
